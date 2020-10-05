@@ -1,0 +1,9 @@
+{
+    "watch": [
+      "src",
+      "app.js",
+      ".env"
+    ],
+    "ext": "js,json",
+    "exec": "babel-node src/app.js"
+}
