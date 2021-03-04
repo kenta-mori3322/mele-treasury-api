@@ -20,7 +20,7 @@ export default {
         const transaction = meleInstance.treasury
             .disburse(
                 address,
-                [{ denom: 'umlc', amount: amount.toString() }],
+                [{ denom: 'umelc', amount: amount.toString() }],
                 referenceId
             )
             .sendTransaction()
@@ -54,7 +54,7 @@ export default {
 
         const amount = Utils.toUmelc(amountMelc.toString(), 'melc')
         const transaction = meleInstance.treasury
-            .burn([{ denom: 'umlc', amount: amount.toString() }])
+            .burn([{ denom: 'umelc', amount: amount.toString() }])
             .sendTransaction()
 
         return Utils.promisify(transaction)
