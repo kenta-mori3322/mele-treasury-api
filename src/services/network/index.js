@@ -17,7 +17,7 @@ export default {
         }
 
         const amount = Utils.toUmelc(amountMelc.toString(), 'melc')
-        const transaction = meleInstance.treasury
+        const transaction = await meleInstance.treasury
             .disburse(
                 address,
                 [{ denom: 'umelc', amount: amount.toString() }],
@@ -53,7 +53,7 @@ export default {
         }
 
         const amount = Utils.toUmelc(amountMelc.toString(), 'melc')
-        const transaction = meleInstance.treasury
+        const transaction = await meleInstance.treasury
             .burn([{ denom: 'umelc', amount: amount.toString() }])
             .sendTransaction()
 
