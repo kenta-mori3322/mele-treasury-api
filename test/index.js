@@ -7,7 +7,7 @@ const URL = 'http://localhost:3000'
 const testInstance = axios.create({
     headers: {
         common: {
-            'X-API-KEY': 't3st-s3cr3t-tok3n'
+            'X-API-KEY': '4E12D4E1EDBB7B5925CD8AB46675B'
         }
     }
 })
