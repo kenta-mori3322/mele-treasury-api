@@ -30,7 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8]
         node-version: ['12.x']
         appname: ['mele-treasury-api-dev2-CD']
         deploy-group: ['MeleTreasuryApiDev2CD']
