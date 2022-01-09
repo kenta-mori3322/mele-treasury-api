@@ -12,5 +12,3 @@ sudo npm -g install pm2
 sudo chmod -R 0755 /usr/lib/node_modules
 
 sudo apt install -y mongodb
-
-sudo cp .env mele-treasury-api-dev/.env
