@@ -9,22 +9,6 @@ on:
       - develop2
 
 jobs:
-  buildAndTest:
-    name: CI Pipeline
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ['12.x']
-
-    steps:
-      - uses: actions/checkout@v2
-
-      # Initialize Node.js
-      - name: Install Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
   deploy:
     name: CD Pipeline
     runs-on: ubuntu-latest
@@ -50,6 +34,8 @@ jobs:
         run: npm install
       - name: Run build
         run: npm run build
+        env:
+          CI: false
 
       # Install AWS CLI 2
       #- name: Install AWS CLI 2
