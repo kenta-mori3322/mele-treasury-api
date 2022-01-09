@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['12.x']
+        node-version: ['16.x']
         appname: ['mele-treasury-api-dev2-CD']
         deploy-group: ['MeleTreasuryApiDev2CD']
         s3-bucket: ['mele-treasury-api']
