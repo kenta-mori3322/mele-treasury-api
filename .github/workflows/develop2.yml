@@ -20,7 +20,6 @@ jobs:
         s3-bucket: ['mele-treasury-api']
         s3-filename: ['mele-treasury-api-dev-${{ github.sha }}']
 
-    needs: buildAndTest
     steps:
       - uses: actions/checkout@v2
 
