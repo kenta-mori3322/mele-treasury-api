@@ -13,7 +13,11 @@ const disburseSchema = new Schema(
             type: String,
             required: true,
         },
-        amount: {
+        amountMelc: {
+            type: String,
+            required: true,
+        },
+        amountMelg: {
             type: String,
             required: true,
         },

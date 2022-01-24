@@ -5,7 +5,7 @@ import Logger from '../../loaders/logger'
 
 export default {
     meleProvider,
-    async sendDisburse(address, amountMelc, referenceId) {
+    async sendDisburse(address, amountMelc, amountMelg, referenceId) {
         const signer = meleProvider.getSigner()
         if (!signer) {
             throw new Error('Network Signer is not configured.')
@@ -16,11 +16,13 @@ export default {
             throw new Error('Network is not configured.')
         }
 
-        const amount = Utils.toUmelc(amountMelc.toString(), 'melc')
+        const amountUmelc = Utils.toUmelc(amountMelc.toString(), 'melc')
+        const amountUmelg = Utils.toUmelg(amountMelg.toString(), 'melg')
+        
         const transaction = await meleInstance.treasury
             .disburse(
                 address,
-                [{ denom: 'umelc', amount: amount.toString() }],
+                [{ denom: 'umelc', amount: amountUmelc.toString() }, { denom: 'umelg', amount: amountUmelg.toString() }],
                 referenceId
             )
             .sendTransaction()

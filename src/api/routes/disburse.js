@@ -16,7 +16,8 @@ export default (app) => {
         compose(
             celebrate({
                 [Segments.BODY]: {
-                    amount: Joi.number().positive().required(),
+                    amountMelc: Joi.number().positive().required(),
+                    amountMelg: Joi.number().positive().required(),
                     reference_id: Joi.string().required(),
                     address: Joi.string().required(),
                 },
@@ -24,7 +25,7 @@ export default (app) => {
             middleware.checkSecretApiToken
         ),
         async (req, res, next) => {
-            const { reference_id, address, amount } = req.body
+            const { reference_id, address, amountMelc, amountMelg } = req.body
             Disburse.findOne({ reference_id })
                 .then((disburse) => {
                     if (disburse) {
@@ -34,14 +35,16 @@ export default (app) => {
                     return Disburse.create({
                         reference_id,
                         address,
-                        amount,
+                        amountMelc,
+                        amountMelg
                     })
                 })
                 .then((disburse) => {
                     return networkService
                         .sendDisburse(
                             disburse.address,
-                            disburse.amount,
+                            disburse.amountMelc,
+                            disburse.amountMelg,
                             disburse.reference_id
                         )
                         .then(({ hash }) => {

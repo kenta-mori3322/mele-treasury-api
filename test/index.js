@@ -30,7 +30,8 @@ describe('Mele Treasury Service', function () {
     let reference = 'example-reference' + Math.random().toString(36).substring(7)
     it('Funds can be disbursed', async () => {
         let result = await testInstance.post(`${URL}/disburse`, {
-            amount: 10000,
+            amountMelc: 10000,
+            amountMelg: 10000,
             reference_id: reference,
             address: address,
         })
