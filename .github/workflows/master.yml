@@ -29,6 +29,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.MY_REPO_PAT }}
+          submodules: recursive
+
+      - name: Install Submodule Packages
+        run:  cd mele-sdk && npm install
+          
       - name: Install dependencies
         run: npm install
       - name: Run build
