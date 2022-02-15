@@ -15,10 +15,10 @@ jobs:
     strategy:
       matrix:
         node-version: ['16.x']
-        appname: ['mele-treasury-api-dev2-CD']
-        deploy-group: ['MeleTreasuryApiDev2CD']
+        appname: ['mele-treasury-api-dev1-CD']
+        deploy-group: ['MeleTreasuryApiDev1CD']
         s3-bucket: ['mele-treasury-api']
-        s3-filename: ['mele-treasury-api-dev-${{ github.sha }}']
+        s3-filename: ['mele-treasury-api-dev1-${{ github.sha }}']
 
     steps:
       - uses: actions/checkout@v2
@@ -57,7 +57,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.SECRET_ACCESS_KEY }}
-          aws-region: eu-central-1
+          aws-region: eu-east-2
 
       # Deploy push to AWS S3
       - name: AWS Deploy push
